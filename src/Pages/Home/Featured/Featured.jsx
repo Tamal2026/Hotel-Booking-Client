@@ -13,7 +13,7 @@ const Featured = () => {
 
   return (
     <div className="w-full">
-      <h1 className="text-5xl font-bold px-3 py-5 text-center bg-cyan-800 text-red-500 rounded-lg">Our Featured Room</h1>
+      <h1 className="text-5xl font-bold px-3 py-5 text-center w-1/4 mx-auto mt-10 bg-cyan-800 text-red-500 rounded-lg">Our Featured Room</h1>
       <div className="w-full flex flex-col md:flex-row lg:flex-row">
         <div className="w-full md:w-2/3 lg:w-2/3 grid grid-cols-3 mt-10">
           {featured?.map(feature => <ShowFeatured key={feature.id} feature={feature} />)}

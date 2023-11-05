@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const ShowRoom = ({ room }) => {
-  const { roomName, img } = room;
+  const { roomName, img,_id } = room;
   return (
     <div>
+      <Link to={`/details/${_id}`}>
       <div className="card w-96 bg-base-100 shadow-xl">
         <figure>
           <img className="w-full h-[350px]" src={img} alt="Shoes" />
@@ -12,6 +15,7 @@ const ShowRoom = ({ room }) => {
        
         </div>
       </div>
+      </Link>
     </div>
   );
 };

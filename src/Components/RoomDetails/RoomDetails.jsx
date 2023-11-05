@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const RoomDetails = () => {
   const bookRoom = useLoaderData();
@@ -27,7 +27,7 @@ const RoomDetails = () => {
               <span className="font-bold">Room Size:</span> {roomSize}
             </h1>
             <h1 className="pt-3">
-              <span className="font-bold">Price Per Night:</span> {price}
+              <span className="font-bold">Price Per Night: $</span> {price}
             </h1>
             <h1 className="pt-3 font-bold">Facilities: </h1>
             <ul className="list-disc list-inside">
@@ -42,7 +42,7 @@ const RoomDetails = () => {
               {description}.
             </p>
             <h1><span className="font-bold">Special Offers:</span> {specialOffer}</h1>
-            <button className="btn btn-primary mt-5 font-bold text-white">Book Now</button>
+            <Link to="/addbooking"><button className="btn btn-primary mt-5 font-bold text-white">Book Now</button></Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+
 
 const ShowFeatured = ({ feature }) => {
-    const {_id, roomName, img, facilities } = feature || {};
+    const { roomName, img, facilities } = feature || {};
 
     return (
         <div>
@@ -14,9 +14,7 @@ const ShowFeatured = ({ feature }) => {
                             <li key={index}>{facility}</li>
                         ))}
                     </ul>
-                    <div className="card-actions justify-end">
-                        <Link to={`/details/${_id}`}><button className="btn btn-primary">Book Now</button></Link>
-                    </div>
+                   
                 </div>
             </div>
         </div>

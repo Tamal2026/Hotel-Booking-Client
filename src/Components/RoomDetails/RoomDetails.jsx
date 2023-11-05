@@ -18,10 +18,11 @@ const RoomDetails = () => {
     <div>
       <div className=" bg-base-200">
         <div className=" hero-content flex-col lg:flex-row">
-          {/* <h1 className="text-center bg-sky-700 text-orange-300 w-1/6 mx-auto rounded-lg py-3 text-3xl mb-5 font-bold
-     ">{roomName}</h1> */}
+         
           <img src={img} className=" w-2/4 mx-auto rounded-lg shadow-2xl" />
           <div>
+          <h1 className="text-center bg-sky-700 text-emerald-300 w-1/5 mx-auto rounded-lg py-3 text-xl mb-5 font-bold
+     ">{roomName}</h1>
             <h1>
               <span className="font-bold">Room Size:</span> {roomSize}
             </h1>
@@ -41,6 +42,7 @@ const RoomDetails = () => {
               {description}.
             </p>
             <h1><span className="font-bold">Special Offers:</span> {specialOffer}</h1>
+            <button className="btn btn-primary mt-5 font-bold text-white">Book Now</button>
           </div>
         </div>
       </div>

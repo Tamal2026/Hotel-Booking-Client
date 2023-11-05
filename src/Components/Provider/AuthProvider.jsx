@@ -21,7 +21,6 @@ const signIn = (email,password)=>{
 
 
 
-
 const authInfo = {
     user,createUser,signIn
 }

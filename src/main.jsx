@@ -12,6 +12,8 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import AuthProvider from './Components/Provider/AuthProvider';
+import Rooms from './Pages/Rooms/Rooms';
+import RoomDetails from './Components/RoomDetails/RoomDetails';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,13 @@ const router = createBrowserRouter([
       },{
         path:"/register",
         element:<Register></Register>
+      },{
+        path:"rooms",
+        element:<Rooms></Rooms>
+      },{
+        path:"details/:id",
+        element:<RoomDetails></RoomDetails>,
+        loader:({params})=>fetch(`http://localhost:5000/featuredRooms/${params.id}`)
       }
     ]
   },

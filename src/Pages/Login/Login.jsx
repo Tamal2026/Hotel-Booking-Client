@@ -1,15 +1,21 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import {  getAuth } from "firebase/auth";
+
 import { AuthContext } from "../../Components/Provider/AuthProvider";
+import {getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from "../../Firebase/firebase.config";
 
+
 const Login = () => {
-    const auth = getAuth(app);
-const { user} = useContext(AuthContext);
+
 const { signIn } = useContext(AuthContext);
-
-
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+const googleSignIn = ()=>{
+  signInWithPopup(auth,googleProvider)
+  .then(result =>console.log(result.user))
+  .catch(error =>console.error(error))
+}
     const handleLogin=(e)=>{
 e.preventDefault();
 const form = e.target;
@@ -51,6 +57,18 @@ signIn(email,password)
             <span className="label-text">Password</span>
           </label>
           <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+          <div className="mt-4  items-center justify-evenly">
+              <p>Sign In With:</p>
+              <div>
+                <button
+                  onClick={googleSignIn}
+                  className="mt-2 bg-red-500 text-white px-2 py-1 rounded-lg"
+                >
+                  Google
+                </button>
+              </div>
+            </div>
+          
           <p className="mt-5">New Here? Please <span className="font-bold text-green-500"><Link to="/register">Register</Link></span></p>
         </div>
         <div className="form-control mt-6">

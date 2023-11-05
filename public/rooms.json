@@ -1,0 +1,118 @@
+[
+  {
+    "roomName": "Suite",
+    "img": "https://i.ibb.co/cQ7hLCN/Featured-01.jpg",
+    "facilities": [
+      "King-size bed",
+      "Spacious living area",
+      "Luxurious bathroom"
+    ],
+    "description": "A spacious suite with elegant interiors and a comfortable atmosphere.",
+    "price": 250,
+    "roomSize": "700 sq ft",
+    "specialOffer": "20% Off for Weekend Bookings"
+  },
+  {
+    "roomName": "Paradise Suite",
+    "img": "https://i.ibb.co/d5mjQkz/Featured-02.jpg",
+    "facilities": ["Panoramic ocean view", "Private balcony", "Jacuzzi"],
+    "description": "A luxurious suite with breathtaking views and exclusive amenities.",
+    "price": 350,
+    "roomSize": "900 sq ft",
+    "specialOffer": "Free Spa Access for Weekday Bookings"
+  },
+  {
+    "roomName": "Deluxe Room",
+    "img": "https://i.ibb.co/C6Q6WZ2/Featured-04.jpg",
+    "facilities": ["Queen-size bed", "Private workspace", "Minibar"],
+    "description": "A comfortable room with modern amenities and a cozy ambiance.",
+    "price": 150,
+    "roomSize": "400 sq ft"
+  },
+  {
+    "roomName": "Executive Suite",
+    "img": "https://i.ibb.co/8NcMVS6/Featured-03.jpg",
+    "facilities": ["Separate dining area", "Workout room", "Private terrace"],
+    "description": "An expansive suite offering privacy and upscale facilities for a luxurious stay.",
+    "price": 450,
+    "roomSize": "1100 sq ft"
+  },
+  {
+    "roomName": "Penthouse",
+    "img": "https://i.ibb.co/hDQmJC4/Featured-06.jpg",
+    "facilities": ["Rooftop access", "Personal chef", "Private elevator"],
+    "description": "A lavish penthouse with exclusive services and stunning skyline views.",
+    "price": 600,
+    "roomSize": "1500 sq ft",
+    "specialOffer": "Complimentary Airport Transfer"
+  },
+  {
+    "roomName": "Luxury Villa",
+    "img": "https://i.ibb.co/C6Q6WZ2/Featured-04.jpg",
+    "facilities": ["Private pool", "Garden view", "24/7 concierge"],
+    "description": "A private villa with lush gardens and top-notch amenities for an unforgettable retreat.",
+    "price": 800,
+    "roomSize": "2000 sq ft",
+    "specialOffer": "Unlimited Spa Sessions During Stay"
+  },
+  {
+    "roomName": "Luxury Cabin",
+    "img": "https://i.ibb.co/64tnQhy/Featured-07.jpg",
+    "facilities": ["Private fireplace", "Mountain view", "Hot tub"],
+    "description": "A cozy cabin nestled amidst the mountains, offering comfort and tranquility.",
+    "price": 300,
+    "roomSize": "600 sq ft"
+  },
+  {
+    "roomName": "Deluxe Ocean Suite",
+    "img": "https://i.ibb.co/kGM8Mpc/Featured-08.jpg",
+    "facilities": ["Oceanfront balcony", "Spa services", "Private chef"],
+    "description": "An oceanfront suite with pampering services and mesmerizing sea views.",
+    "price": 500,
+    "roomSize": "1000 sq ft",
+    "specialOffer": "Sunset Dinner on the Beach for Two"
+  },
+  {
+    "roomName": "Executive Bungalow",
+    "img": "https://i.ibb.co/PgqCDWZ/Featured-09.jpg",
+    "facilities": [
+      "Secluded beach access",
+      "Outdoor dining area",
+      "Fitness center"
+    ],
+    "description": "A luxurious bungalow near the beach, offering privacy and a range of activities.",
+    "price": 700,
+    "roomSize": "1800 sq ft"
+  },
+  {
+    "roomName": "Presidential Villa",
+    "img": "https://i.ibb.co/6tG94x8/Featured-10.jpg",
+    "facilities": ["Private pool", "Personal butler", "Lavish interior"],
+    "description": "A grand villa with personalized services and opulent interiors for a regal stay.",
+    "price": 1200,
+    "roomSize": "2500 sq ft"
+  },
+  {
+    "roomName": "Eco-Friendly Cottage",
+    "img": "https://i.ibb.co/jbZR1hS/Featured-11.jpg",
+    "facilities": [
+      "Sustainable design",
+      "Organic dining options",
+      "Nature excursions"
+    ],
+    "description": "An eco-friendly cottage providing sustainable living and unique nature experiences.",
+    "price": 200,
+    "roomSize": "500 sq ft",
+    "specialOffer": "Guided Nature Walks Included"
+  },
+  {
+    
+    "roomName": "Family Suite",
+    "img": "https://i.ibb.co/T1P4KWX/Featured-12.jpg",
+    "facilities": ["Adjoining rooms", "Kids' play area", "Childcare services"],
+    "description": "A spacious suite designed for families, providing comfort and entertainment for all members.",
+    "price": 400,
+    "roomSize": "800 sq ft",
+    "specialOffer": "Complimentary Kids' Club Access"
+  }
+]

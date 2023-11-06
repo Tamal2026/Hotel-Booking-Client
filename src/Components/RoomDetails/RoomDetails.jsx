@@ -5,7 +5,7 @@ const RoomDetails = () => {
 
   const {
     roomName,
-    _id,
+    
     specialOffer,
     price,
     img,

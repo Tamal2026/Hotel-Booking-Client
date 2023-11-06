@@ -1,0 +1,23 @@
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import axios from "axios";
+
+
+const MyBooking = () => {
+    const {user} = useContext(AuthContext)
+const [booking,setBooking] = useState([]);
+
+    const url = `http://localhost:5000/roombookings?email=${user.email}`;
+    useEffect(()=>{
+        axios.get(url,{withCredentials:true})
+        .then(res=>res.json())
+        .then(data =>setBooking(data))
+    },[url])
+    return (
+        <div>
+            
+        </div>
+    );
+};
+
+export default MyBooking;

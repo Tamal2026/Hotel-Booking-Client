@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Components/Provider/AuthProvider";
 import {getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from "../../Firebase/firebase.config";
+import axios from "axios";
 
 
 const Login = () => {
@@ -30,7 +31,13 @@ console.log(loginUser);
 
 signIn(email,password)
 .then(result =>{
-    console.log(result.user);
+const loggedInUser = result.user;console.log(loggedInUser);
+ const user = {email}
+ axios.post('http://localhost:5000/jwt',user,{withCredentials:true})
+ .then(res=>{
+  console.log(res.data);
+ })
+
 })
 .catch(error =>console.error(error))
     }

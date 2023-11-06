@@ -1,29 +1,35 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
-import Swal from 'sweetalert2'
-const AddBooking = () => {
-  const service = useLoaderData();
+import Swal from "sweetalert2";
 
-  const { title, price, img } = service || {};
+const AddBooking = () => {
+  const bookedRoom = useLoaderData();
+  console.log(bookedRoom);
+  const { price, img, roomName, roomSize, specialOffer } = bookedRoom || {};
   const { user } = useContext(AuthContext);
 
   const handleBookService = (e) => {
     e.preventDefault();
     const form = e.target;
-
     const name = form.name.value;
     const date = form.date.value;
-    const email = user?.email;
+    const email = form.email.value;
+    const due = form.due.value;
+
     const order = {
       name,
       date,
       email,
       price,
       img,
-      title,
+      roomName,
+      roomSize,
+      specialOffer,
+      due,
     };
     console.log(order);
+
     fetch("http://localhost:5000/roombookings", {
       method: "POST",
       headers: {
@@ -33,17 +39,16 @@ const AddBooking = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        if(data.insertedId){
-            Swal.fire({
-                icon: 'success',
-        
-                text: 'Your Booked SuccessFully!',
-               
-              })
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            text: "Your Booked Successfully!",
+          });
         }
       });
   };
+
   return (
     <div>
       <div>
@@ -80,7 +85,7 @@ const AddBooking = () => {
             </label>
             <input
               type="email"
-              placeholder="email"
+              name="email"
               defaultValue={user?.email}
               className="input input-bordered"
               required
@@ -92,6 +97,7 @@ const AddBooking = () => {
             </label>
             <input
               type="text"
+              name="due"
               defaultValue={price}
               className="input input-bordered"
               required

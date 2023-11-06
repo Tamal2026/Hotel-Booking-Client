@@ -15,6 +15,7 @@ import AuthProvider from './Components/Provider/AuthProvider';
 import Rooms from './Pages/Rooms/Rooms';
 import RoomDetails from './Components/RoomDetails/RoomDetails';
 import AddBooking from './Components/AddBooking/AddBooking';
+import MyBooking from './Components/MyBooking/MyBooking';
 
 const router = createBrowserRouter([
   {
@@ -39,8 +40,13 @@ const router = createBrowserRouter([
         loader:({params})=>fetch(`http://localhost:5000/featuredRooms/${params.id}`)
       },{
         path:"/addbooking",
-        element:<AddBooking></AddBooking>
+        element:<AddBooking></AddBooking>,
+        loader:()=>fetch('http://localhost:5000/rooms')
+      },{
+        path:'/mybookings',
+        element:<MyBooking></MyBooking>
       }
+      
     ]
   },
 ]);

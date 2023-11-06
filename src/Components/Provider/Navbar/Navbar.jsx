@@ -22,11 +22,21 @@ const Navbar = () => {
         <NavLink to="/about">About</NavLink>
       </li>
 
-      {user?.email ?  (
+      {user?.email ? <>
+      
+        <li>
+          <NavLink to="/mybookings">My Bookings</NavLink>
+          
+        </li>
         <li>
           <button onClick={handleLogout}>LogOut</button>
         </li>
-      ) :(
+       
+
+      
+      
+      
+      </>  :(
         <>
         
         <li>

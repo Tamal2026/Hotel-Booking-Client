@@ -17,6 +17,9 @@ const Rooms = () => {
       <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-y-8">
         {rooms?.map(room => <ShowRoom key={room._id} room={room} />)}
       </div>
+      <div className="bg-slate-400 text-sky-500 font-bold text-3xl py-3 text-center">
+          <h1>Our customers rate us and review Us with honesty and appreciation </h1>
+        </div>
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import ShowRoom from "./ShowRoom";
+import ShowReview from "../../Components/Review/ShowReview";
+import DisplayData from "../../Components/Review/DisplayReview";
 
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
@@ -12,6 +14,7 @@ const Rooms = () => {
   }, []);
 
   return (
+  <>
     <div className="">
      <h1 className="text-5xl font-bold bg-emerald-600 text-center py-3 rounded-lg text-white w-1/5 mb-10 mx-auto">Our Rooms</h1>
       <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-y-8">
@@ -21,6 +24,9 @@ const Rooms = () => {
           <h1>Our customers rate us and review Us with honesty and appreciation </h1>
         </div>
     </div>
+ <DisplayData></DisplayData>
+  
+  </>
   );
 };
 

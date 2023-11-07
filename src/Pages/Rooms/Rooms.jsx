@@ -32,7 +32,7 @@ const Rooms = () => {
       </div>
 
       <div>
-        <label className="px-5" htmlFor="sortBy">Sort By:</label>
+        <label className="px-2" htmlFor="sortBy">Sort By Price :</label>
         <select
           id="sortBy"
           value={sortBy}

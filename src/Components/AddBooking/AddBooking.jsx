@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
 
 const AddBooking = () => {
-  const bookedRoom = useLoaderData();
   const [date, setDate] = useState("");
-  const { price, img, roomName, roomSize, specialOffer } = bookedRoom || {};
   const { user } = useContext(AuthContext);
+  const bookedRoom = useLoaderData();
+  const { price, img, roomName, roomSize, specialOffer } = bookedRoom || {};
 
   const handleBookService = () => {
     const order = {
@@ -15,14 +15,14 @@ const AddBooking = () => {
       date: date,
       email: document.getElementById("email").value,
       price: price,
-      img: img, // Make sure that this variable has the appropriate value
+      img: img, // Ensure the 'img' variable has the appropriate value
       roomName: roomName,
       roomSize: roomSize,
       specialOffer: specialOffer,
       due: document.getElementById("due").value,
     };
 
-      fetch("http://localhost:5000/rooms", {
+    fetch("http://localhost:5000/roombookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -78,12 +78,7 @@ const AddBooking = () => {
             <label className="label">
               <span className="label-text">Name</span>
             </label>
-            <input
-              id="name"
-              type="text"
-              className="input input-bordered"
-              required
-            />
+            <input id="name" type="text" className="input input-bordered" required />
           </div>
           <div className="form-control">
             <label className="label">

@@ -1,11 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const AddBooking = () => {
   const bookedRoom = useLoaderData();
-  console.log(bookedRoom);
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const { price, img, roomName, roomSize, specialOffer } = bookedRoom || {};
   const { user } = useContext(AuthContext);
 
@@ -13,7 +15,7 @@ const AddBooking = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const date = form.date.value;
+    const date = selectedDate.toISOString();
     const email = form.email.value;
     const due = form.due.value;
 
@@ -28,7 +30,6 @@ const AddBooking = () => {
       specialOffer,
       due,
     };
-    console.log(order);
 
     fetch("http://localhost:5000/roombookings", {
       method: "POST",
@@ -39,13 +40,15 @@ const AddBooking = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             icon: "success",
-            text: "Your Booked Successfully!",
+            text: "Your Booking was successful!",
           });
         }
+      })
+      .catch((error) => {
+        console.error("Error occurred during booking:", error);
       });
   };
 
@@ -71,9 +74,10 @@ const AddBooking = () => {
             <label className="label">
               <span className="label-text">Date</span>
             </label>
-            <input
-              type="date"
-              name="date"
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              dateFormat="P"
               className="input input-bordered"
               required
             />

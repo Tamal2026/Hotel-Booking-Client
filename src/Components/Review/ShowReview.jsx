@@ -14,7 +14,7 @@ const ShowReview = ({ reviews }) => {
               <th className="px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider font-bold">Username</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Review</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rating</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Submission Time</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Reviewed Time</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">

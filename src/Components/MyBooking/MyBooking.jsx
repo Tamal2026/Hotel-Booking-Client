@@ -41,7 +41,7 @@ const MyBooking = () => {
 
           const remaining = bookings.filter(booking =>booking._id !== id)
           setBooking(remaining);
-          ;
+          
         } catch (error) {
           console.error("Error occurred during deletion:", error);
         }
@@ -53,7 +53,7 @@ const MyBooking = () => {
 
   return (
     <div>
-      <div>
+      <div className="">
         {
             bookings?.map(booking =><ShowMyBookings key={booking._id}booking={booking} handleCancel={handleCancel}></ShowMyBookings>)
         }

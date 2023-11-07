@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const ShowRoom = ({ room }) => {
-  const { roomName, img, _id } = room;
+  const { roomName, img, _id,price } = room;
   return (
     <>
       <div>
@@ -15,6 +15,7 @@ const ShowRoom = ({ room }) => {
               <h2 className="card-title text-3xl text-sky-600 font-bold">
                 {roomName}
               </h2>
+              <h1 className="font-bold">Price: {price}</h1>
             </div>
           </div>
         </Link>

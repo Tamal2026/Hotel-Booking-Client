@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Components/Provider/AuthProvider";
+import HelmetReact from "../../Components/Helmet/HelmetReact";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -22,6 +23,9 @@ const Register = () => {
   };
   return (
     <div>
+      <div>
+        <HelmetReact title="Register"></HelmetReact>
+      </div>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">

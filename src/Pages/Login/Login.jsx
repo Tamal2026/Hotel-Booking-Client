@@ -1,15 +1,17 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../Components/Provider/AuthProvider";
 import {getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from "../../Firebase/firebase.config";
 import axios from "axios";
+import HelmetReact from "../../Components/Helmet/HelmetReact";
 
 
 const Login = () => {
+  const naviGate = useNavigate();
 
-const { signIn } = useContext(AuthContext);
+const { signIn,user } = useContext(AuthContext);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const googleSignIn = ()=>{
@@ -36,15 +38,22 @@ const loggedInUser = result.user;console.log(loggedInUser);
  axios.post('http://localhost:5000/jwt',user,{withCredentials:true})
  .then(res=>{
   console.log(res.data);
+  naviGate(location?.state ? location.state : "/");
  })
 
 })
 .catch(error =>console.error(error))
     }
 
+    if (user) {
+      return <Navigate to="/"></Navigate>;
+    }
 
     return (
         <div>
+          <div>
+            <HelmetReact title="Login"></HelmetReact>
+          </div>
             <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">

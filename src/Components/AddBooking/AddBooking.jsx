@@ -2,36 +2,27 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 const AddBooking = () => {
   const bookedRoom = useLoaderData();
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [date, setDate] = useState("");
   const { price, img, roomName, roomSize, specialOffer } = bookedRoom || {};
   const { user } = useContext(AuthContext);
 
-  const handleBookService = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const date = selectedDate.toISOString();
-    const email = form.email.value;
-    const due = form.due.value;
-
+  const handleBookService = () => {
     const order = {
-      name,
-      date,
-      email,
-      price,
-      img,
-      roomName,
-      roomSize,
-      specialOffer,
-      due,
+      name: document.getElementById("name").value,
+      date: date,
+      email: document.getElementById("email").value,
+      price: price,
+      img: img, // Make sure that this variable has the appropriate value
+      roomName: roomName,
+      roomSize: roomSize,
+      specialOffer: specialOffer,
+      due: document.getElementById("due").value,
     };
 
-    fetch("http://localhost:5000/roombookings", {
+      fetch("http://localhost:5000/rooms", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -52,11 +43,35 @@ const AddBooking = () => {
       });
   };
 
+  const showSummaryPopup = () => {
+    Swal.fire({
+      icon: "info",
+      title: "Booking Summary",
+      html: `
+        <div>
+          <p><strong>Room Name:</strong> ${roomName}</p>
+          <p><strong>Room Size:</strong> ${roomSize}</p>
+          <p><strong>Special Offer:</strong> ${specialOffer}</p>
+          <p><strong>Date:</strong> ${date}</p>
+          <p><strong>Due:</strong> ${price}</p>
+        </div>
+      `,
+      confirmButtonText: "Confirm Booking",
+      showCancelButton: true,
+      cancelButtonText: "Cancel",
+      showLoaderOnConfirm: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleBookService();
+      }
+    });
+  };
+
   return (
     <div>
       <div>
         <form
-          onSubmit={handleBookService}
+          onSubmit={(e) => e.preventDefault()}
           className="card-body grid grid-cols-1 lg:grid-cols-2"
         >
           <div className="form-control">
@@ -64,8 +79,8 @@ const AddBooking = () => {
               <span className="label-text">Name</span>
             </label>
             <input
+              id="name"
               type="text"
-              name="name"
               className="input input-bordered"
               required
             />
@@ -74,10 +89,10 @@ const AddBooking = () => {
             <label className="label">
               <span className="label-text">Date</span>
             </label>
-            <DatePicker
-              selected={selectedDate}
-              onChange={(date) => setSelectedDate(date)}
-              dateFormat="P"
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
               className="input input-bordered"
               required
             />
@@ -88,8 +103,8 @@ const AddBooking = () => {
               <span className="label-text">Email</span>
             </label>
             <input
+              id="email"
               type="email"
-              name="email"
               defaultValue={user?.email}
               className="input input-bordered"
               required
@@ -100,15 +115,17 @@ const AddBooking = () => {
               <span className="label-text">Due</span>
             </label>
             <input
+              id="due"
               type="text"
-              name="due"
               defaultValue={price}
               className="input input-bordered"
               required
             />
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Proceed</button>
+            <button onClick={showSummaryPopup} className="btn btn-primary">
+              Proceed
+            </button>
           </div>
         </form>
       </div>

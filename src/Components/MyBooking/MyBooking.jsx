@@ -3,6 +3,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import ShowMyBookings from "./ShowMyBookings";
 import Swal from "sweetalert2";
+import HelmetReact from "../Helmet/HelmetReact";
 
 const MyBooking = () => {
   const { user } = useContext(AuthContext);
@@ -53,6 +54,9 @@ const MyBooking = () => {
 
   return (
     <div>
+      <div>
+        <HelmetReact title="Bookings"></HelmetReact>
+      </div>
       <div className="">
         {
             bookings?.map(booking =><ShowMyBookings key={booking._id}booking={booking} handleCancel={handleCancel}></ShowMyBookings>)

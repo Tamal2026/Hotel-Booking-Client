@@ -19,6 +19,7 @@ import MyBooking from './Components/MyBooking/MyBooking';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import AddReview from './Components/Review/AddReview';
 import ErrorPage from './Components/ErrorPage';
+import About from './Pages/About/About';
 
 const router = createBrowserRouter([
   {
@@ -52,7 +53,13 @@ const router = createBrowserRouter([
         path:'/addreview/:id',
         element:<AddReview></AddReview>,
         loader:({params})=>fetch(`http://localhost:5000/rooms/${params.id}`)
-      },  {
+      }, {
+        path:"/about",
+        element:<About></About>
+      },
+      
+      
+      {
         path: "*",
         element: <ErrorPage></ErrorPage>,
       },

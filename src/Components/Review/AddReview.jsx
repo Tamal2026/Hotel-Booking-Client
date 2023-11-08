@@ -16,7 +16,7 @@ const AddReview = () => {
     console.log(addReview);
     console.log(rating);
     axios
-      .post("http://localhost:5000/addReviews", {
+      .post("https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.app/addReviews", {
         review: addReview,
         rating: rating,
         username: username,

@@ -9,7 +9,7 @@ const MyBooking = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBooking] = useState([]);
 
-  const url = `http://localhost:5000/roombookings?email=${user?.email}`;
+  const url = `https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.approombookings?email=${user?.email}`;
   useEffect(() => {
     axios
       .get(url, { withCredentials: true })
@@ -18,7 +18,7 @@ const MyBooking = () => {
   }, [url]);
 
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/roombookings/${id}`, {
+    fetch(`https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.approombookings/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -53,7 +53,7 @@ const MyBooking = () => {
       if (result.isConfirmed) {
         try {
           const response = await fetch(
-            `http://localhost:5000/roombookings/${id}`,
+            `https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.approombookings/${id}`,
             {
               method: "DELETE",
             }

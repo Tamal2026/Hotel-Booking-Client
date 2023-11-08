@@ -23,7 +23,7 @@ const AddBooking = () => {
       due: document.getElementById("due").value,
     };
 
-    fetch(`http://localhost:5000/roombookings/:${_id}`, {
+    fetch(`https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.approombookings/:${_id}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

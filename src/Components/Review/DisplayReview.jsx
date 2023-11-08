@@ -6,7 +6,7 @@ const DisplayData = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/addreviews") 
+    axios.get("https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.app/addreviews") 
       .then((response) => {
        setReviews(response.data);
       })
@@ -17,7 +17,7 @@ const DisplayData = () => {
 
   return (
     <div>
-      <h1>Displaying Fetched Data</h1>
+      <h1>Display All Reviews</h1>
       <ul>
        {
         reviews?.map(review => <ShowReview key={review._id} reviews={review} />)

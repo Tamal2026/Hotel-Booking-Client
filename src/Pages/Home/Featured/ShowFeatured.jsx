@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const ShowFeatured = ({ feature, room }) => {
-  const { roomName, img, facilities, _id } = feature || {};
+  const { roomName, img, facilities, } = feature || {};
 
   return (
     <div>

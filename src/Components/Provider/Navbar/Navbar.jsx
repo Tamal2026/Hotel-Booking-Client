@@ -22,32 +22,25 @@ const Navbar = () => {
         <NavLink to="/about">About</NavLink>
       </li>
 
-      {user?.email ? <>
-      
-        <li>
-          <NavLink to="/mybookings">My Bookings</NavLink>
-          
-        </li>
-        <li>
-          <button onClick={handleLogout}>LogOut</button>
-        </li>
-       
-
-      
-      
-      
-      </>  :(
+      {user?.email ? (
         <>
-        
-        <li>
-          <NavLink to="/login">Login</NavLink>
-          
-        </li>
-        <li><NavLink to="/register">Register</NavLink></li>
-        
+          <li>
+            <NavLink to="/mybookings">My Bookings</NavLink>
+          </li>
+          <li>
+            <button onClick={handleLogout}>LogOut</button>
+          </li>
         </>
-        
-      ) }
+      ) : (
+        <>
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+          <li>
+            <NavLink to="/register">Register</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -88,8 +81,17 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="navbar-end flex items-center">
+          {user?.email ? (
+            <div className="flex items-center">
+              <img
+                src={user.photoURL}
+                alt="user-profile"
+                className="rounded-full h-10 w-10 mr-2"
+              />
+              <p className="text-sm">{user.displayName}</p>
+            </div>
+          ) : <p></p>}
         </div>
       </div>
     </div>

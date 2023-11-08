@@ -1,4 +1,4 @@
-import Footer from "../../Components/Footer/Footer";
+
 import HelmetReact from "../../Components/Helmet/HelmetReact";
 import Banner from "./Banner/Banner";
 import Featured from "./Featured/Featured";
@@ -16,7 +16,7 @@ const Home = () => {
            <Welcome></Welcome>
            <Featured></Featured>
            <Newsletter></Newsletter>
-           <Footer></Footer>
+ 
             
         </div>
     );

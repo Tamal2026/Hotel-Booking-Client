@@ -11,42 +11,26 @@ const About = () => {
         <h1 className="text-3xl font-semibold mb-4 bg-emerald-600 text-white  py-2 w-2/4  lg:w-1/6  text-center rounded-lg mx-auto">
           About Us
         </h1>
-        <p className="mb-4 mt-7">
-          Welcome to our Your Trusted Automotive Partner! We are passionate about
-          Car Lover and dedicated to providing you with the best Car experiences.
+        <p className="mb-4 font-bold mt-7">
+        Welcome to our Luxury Hotel Booking Platform! We are passionate about creating memorable hotel experiences and are dedicated to providing you with the best hospitality services. With our exceptional accommodations, world-class amenities, and personalized customer service, we ensure your stay with us is nothing short of extraordinary. Book your dream getaway today and indulge in the ultimate hotel experience.
+
         </p>
         <p className="mb-4">
-          "At Close AutoMobile, we understand that driving is more than just a
-          means of transportation; it's an experience. Our mission is to cater to
-          all automotive enthusiasts, from those seeking a reliable ride for
-          everyday adventures to those yearning for high-performance thrills. We
-          share your passion for the open road, the joy of seamless journeys, and
-          the excitement of exploring new horizons. Join us in celebrating the art
-          of driving and embark on unforgettable automotive journeys."
+        At CoZy Heaven Hotel, we believe that a hotel stay is more than just a temporary residence; it's an experience. Our mission is to cater to all travelers, from those seeking a comfortable stay for business trips to those yearning for luxurious getaways. We share your passion for exceptional hospitality, the pleasure of seamless stays, and the thrill of discovering new destinations. Join us in celebrating the art of hospitality and embark on unforgettable hotel experiences..
         </p>
-        <p className="mb-4">
-          Our team of automotive enthusiasts is dedicated to providing
-          comprehensive support for all your car-related requirements. We stay
-          abreast of the latest advancements and innovations in the automotive
-          industry to ensure you enjoy a seamless driving experience. Whether you
-          seek guidance for selecting the perfect vehicle, require maintenance
-          tips for optimal performance, or need assistance in resolving any
-          car-related concerns, our knowledgeable experts are here to assist you
-          every step of the way. Count on us to make your automotive journey
-          smooth and hassle-free
-        </p>
-        html Copy code
-        <h2 className="text-xl font-semibold mt-6 mb-4">Our Services</h2>
+      
+      
+        <h2 className="text-xl font-bold mt-6 mb-4">Our Services</h2>
         <ul className="list-disc ml-6">
-          <li>Vehicle Sales</li>
-          <li>Vehicle Maintenance</li>
-          <li>Vehicle Customization</li>
-          <li>Vehicle Repairs</li>
-          <li>Vehicle Consultation</li>
-          <li>Vehicle Accessories</li>
+          <li>Room Bookings</li>
+          <li>Concierge Services</li>
+          <li>Event Planning</li>
+          <li>Dining and Catering</li>
+          <li>Recreational Activities</li>
+          <li>Transportation Assistance</li>
         </ul>
         <p className="mt-6">
-        Join us and become an integral part of the automotive community. Discover our range of services and prepare yourself for an unparalleled driving experience! Whether you're a solo adventurer, a road trip enthusiast, or a car aficionado, we're dedicated to transforming your automotive aspirations into a tangible reality. Let us accompany you on your journey towards automotive excellence and exploration
+        Join us and become an integral part of our thriving hospitality community. Discover our comprehensive range of services and prepare yourself for an unparalleled hotel experience! Whether you're a solo traveler, a vacation enthusiast, or a hospitality aficionado, we're dedicated to transforming your travel aspirations into a tangible reality. Let us accompany you on your journey towards hospitality excellence and exploration
         </p>
       </div>
      </>

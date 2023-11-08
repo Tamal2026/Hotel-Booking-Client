@@ -16,9 +16,7 @@ const ShowFeatured = ({ feature, room }) => {
               <li key={index}>{facility}</li>
             ))}
           </ul>
-          <Link to={`/details/${_id}`}>
-            <button className="btn btn-secondary w-full">Book Now</button>
-          </Link>
+          
         </div>
       </div>
     </div>

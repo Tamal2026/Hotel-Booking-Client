@@ -7,6 +7,7 @@ const AddBooking = () => {
   const [date, setDate] = useState("");
   const { user } = useContext(AuthContext);
   const bookedRoom = useLoaderData();
+  console.log(bookedRoom);
   const { price, img, roomName, roomSize, specialOffer } = bookedRoom || {};
 
   const handleBookService = () => {
@@ -15,14 +16,14 @@ const AddBooking = () => {
       date: date,
       email: document.getElementById("email").value,
       price: price,
-      img: img, // Ensure the 'img' variable has the appropriate value
+      img: img, 
       roomName: roomName,
       roomSize: roomSize,
       specialOffer: specialOffer,
       due: document.getElementById("due").value,
     };
 
-    fetch("http://localhost:5000/roombookings", {
+    fetch(`http://localhost:5000/roombookings/:${_id}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

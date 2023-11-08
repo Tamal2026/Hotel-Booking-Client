@@ -45,7 +45,7 @@ const Rooms = () => {
       </div>
 
       <div>
-        <h1>Our Rooms</h1>
+        <h1 className="text-xl mt-3 px-2 sm:w-2/4 lg:text-5xl bg-sky-700 text-white rounded-lg font-bold w-1/4 text-center mx-auto py-2 mb-7">Our Rooms</h1>
         <div className="grid grid-cols-1 md:2 lg:grid-cols-4">
           {sortedRooms.map((room) => (
             <ShowRoom key={room._id} room={room} />

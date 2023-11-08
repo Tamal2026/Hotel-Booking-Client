@@ -17,6 +17,29 @@ const MyBooking = () => {
       .catch((error) => console.error("Error fetching bookings:", error));
   }, [url]);
 
+  const handleUpdate = (id) => {
+    fetch(`http://localhost:5000/roombookings/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status: "confirm" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          alert("Updated");
+          const remaining = bookings.filter(
+            (booking) => booking._id !== booking.id
+          );
+          const Updated = bookings.find((booking) => booking._id === id);
+          Updated.status = 'confirm'
+          const newBookings = [Updated, ...remaining]
+          setBooking(newBookings)
+        }
+      });
+  };
   const handleCancel = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -29,28 +52,28 @@ const MyBooking = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await fetch(`http://localhost:5000/roombookings/${id}`, {
-            method: "DELETE",
-          });
+          const response = await fetch(
+            `http://localhost:5000/roombookings/${id}`,
+            {
+              method: "DELETE",
+            }
+          );
           const data = await response.json();
           setBooking(data);
           Swal.fire({
             title: "Cancelled!",
             text: "Your Booking Cancelled Successfully.",
             icon: "success",
-          })
+          });
 
-          const remaining = bookings.filter(booking =>booking._id !== id)
+          const remaining = bookings.filter((booking) => booking._id !== id);
           setBooking(remaining);
-          
         } catch (error) {
           console.error("Error occurred during deletion:", error);
         }
       }
     });
   };
-  
-
 
   return (
     <div>
@@ -58,9 +81,14 @@ const MyBooking = () => {
         <HelmetReact title="Bookings"></HelmetReact>
       </div>
       <div className="">
-        {
-            bookings?.map(booking =><ShowMyBookings key={booking._id}booking={booking} handleCancel={handleCancel}></ShowMyBookings>)
-        }
+        {bookings?.map((booking) => (
+          <ShowMyBookings
+            key={booking._id}
+            booking={booking}
+            handleCancel={handleCancel}
+            handleUpdate={handleUpdate}
+          ></ShowMyBookings>
+        ))}
       </div>
     </div>
   );

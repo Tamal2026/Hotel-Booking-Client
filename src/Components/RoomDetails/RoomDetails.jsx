@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const RoomDetails = () => {
   const bookRoom = useLoaderData();
+  const {_id} = bookRoom;
 
   const {
     roomName,
@@ -42,7 +43,7 @@ const RoomDetails = () => {
               {description}.
             </p>
             <h1><span className="font-bold">Special Offers:</span> {specialOffer}</h1>
-            <Link to="/addbooking"><button className="btn btn-primary mt-5 font-bold text-white">Book Now</button></Link>
+            <Link to={`/addbooking/${_id}`}><button className="btn btn-primary mt-5 font-bold text-white">Book Now</button></Link>
           </div>
         </div>
       </div>

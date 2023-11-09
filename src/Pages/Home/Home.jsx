@@ -17,7 +17,7 @@ const Home = () => {
            <Welcome></Welcome>
            <Featured></Featured>
 
-           <h1 className="text-3xl text-center">Our Honorable Customer</h1>
+           <h1 className="text-3xl text-center mt-10 bg-indigo-500 text-white py-3 font-bold w-2/6 rounded-lg mx-auto">Our Honourable Customer Experiences</h1>
            <DisplayData></DisplayData>
            <Newsletter></Newsletter>
          

@@ -12,14 +12,15 @@ const Featured = () => {
   }, []);
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <h1 className="text-5xl font-bold px-3 py-5 text-center mx-auto mt-10 bg-cyan-800 text-red-500 rounded-lg">Our Featured Room</h1>
-      <div className="w-full flex flex-col md:flex-row lg:flex-row">
+      <div className="w-full flex flex-col items-center md:flex-row lg:flex-row">
         <div className="w-full md:w-2/3 lg:w-2/3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
           {featured?.map(feature => <ShowFeatured key={feature._id} feature={feature} />)}
         </div>
         <div className="w-full md:w-1/3 lg:w-1/3">
-          <p className="p-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit perferendis, ab harum dolores debitis laboriosam error facilis minima totam consequuntur placeat omnis et, dolore est. Dicta nulla illo vero minus!</p>
+          <p className="p-3">Discover our exquisite collection of featured rooms, each designed to provide the utmost comfort and luxury during your stay. Immerse yourself in a world of unparalleled hospitality and elegance, where every detail has been meticulously curated to ensure a memorable experience. Indulge in the breathtaking views, lavish amenities, and personalized service that epitomize our commitment to excellence. Whether you seek a peaceful retreat or an adventurous getaway, our featured rooms offer the perfect sanctuary for your travels. Book now and embark on a journey of unparalleled relaxation and sophistication.
+</p>
         </div>
       </div>
     </div>

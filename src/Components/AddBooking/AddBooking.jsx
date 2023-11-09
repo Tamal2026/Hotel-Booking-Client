@@ -8,18 +8,18 @@ const AddBooking = () => {
   const { user } = useContext(AuthContext);
   const bookedRoom = useLoaderData();
   console.log(bookedRoom);
-
+  const { price, img, roomName, roomSize, specialOffer } = bookedRoom || {};
 
   const handleBookService = () => {
     const order = {
       name: document.getElementById("name").value,
       date: date,
       email: document.getElementById("email").value,
-      price: bookedRoom[0].price,
-      img: bookedRoom[0].img, 
-      roomName: bookedRoom[0].roomName,
-      roomSize: bookedRoom[0].roomSize,
-      specialOffer: bookedRoom[0].specialOffer,
+      price: price || 0, // Defaulting to 0 if price is undefined
+      img: img, 
+      roomName: roomName,
+      roomSize: roomSize,
+      specialOffer: specialOffer,
       due: document.getElementById("due").value,
     };
 
@@ -42,7 +42,6 @@ const AddBooking = () => {
       .catch((error) => {
         console.error("Error occurred during booking:", error);
       });
-      
   };
 
   const showSummaryPopup = () => {
@@ -51,11 +50,11 @@ const AddBooking = () => {
       title: "Booking Summary",
       html: `
         <div>
-          <p><strong>Room Name:</strong> ${bookedRoom[0].roomName}</p>
-          <p><strong>Room Size:</strong> ${bookedRoom[0].roomSize}</p>
-          <p><strong>Special Offer:</strong> ${bookedRoom[0].specialOffer}</p>
+          <p><strong>Room Name:</strong> ${roomName}</p>
+          <p><strong>Room Size:</strong> ${roomSize}</p>
+          <p><strong>Special Offer:</strong> ${specialOffer}</p>
           <p><strong>Date:</strong> ${date}</p>
-          <p><strong>Due:</strong> ${bookedRoom[0].price}</p>
+          <p><strong>Due:</strong> ${price || 0}</p>
         </div>
       `,
       confirmButtonText: "Confirm Booking",
@@ -68,9 +67,9 @@ const AddBooking = () => {
       }
     });
   };
+
   return (
     <div>
-    
       <div>
         <form
           onSubmit={(e) => e.preventDefault()}
@@ -114,7 +113,7 @@ const AddBooking = () => {
             <input
               id="due"
               type="text"
-              defaultValue={bookedRoom[0].price}
+              defaultValue={price || 0}
               className="input input-bordered"
               required
             />

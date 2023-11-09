@@ -7,7 +7,7 @@ const ShowMyBookings = ({ booking, handleCancel, handleUpdate }) => {
   const [newDate, setNewDate] = useState(date);
 
   const handleDateUpdate = () => {
-    // Trigger the update functionality here
+  
     handleUpdate(_id, newDate);
   };
 
@@ -17,7 +17,7 @@ const ShowMyBookings = ({ booking, handleCancel, handleUpdate }) => {
         <table className="table">
           <thead>
             <tr>
-              <th>Name</th>
+              <th>Room Img</th>
               <th>Room Name</th>
               <th>Price</th>
               <th>Booking Date</th>
@@ -33,18 +33,13 @@ const ShowMyBookings = ({ booking, handleCancel, handleUpdate }) => {
                       <img src={img} alt="avatar" />
                     </div>
                   </div>
-                  <div>
-                    <div className="font-bold">Hart Hagerty</div>
-                    <div className="text-sm opacity-50">United States</div>
-                  </div>
+                
                 </div>
               </td>
-              <td>
+              <td className="font-bold">
                 {roomName}
-                <br />
-                <span className="badge badge-ghost badge-sm">
-                  Desktop Support Technician
-                </span>
+                
+               
               </td>
               <td>{price}</td>
               <th>

@@ -20,7 +20,7 @@ const Login = () => {
         const token = credential.accessToken;
         axios
           .post(
-            "https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.appjwt",
+            "http://localhost:5000/jwt",
             { token, fromGoogle: true },
             { withCredentials: true }
           )
@@ -51,7 +51,7 @@ const Login = () => {
         console.log(loggedInUser);
         const user = { email };
         axios
-          .post("https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.appjwt", user, { withCredentials: true })
+          .post("http://localhost:5000/jwt", user, { withCredentials: true })
           .then((res) => {
             console.log(res.data);
             if (res.data.success) {

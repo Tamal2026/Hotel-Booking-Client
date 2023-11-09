@@ -8,22 +8,22 @@ const AddBooking = () => {
   const { user } = useContext(AuthContext);
   const bookedRoom = useLoaderData();
   console.log(bookedRoom);
-  const { price, img, roomName, roomSize, specialOffer } = bookedRoom || {};
+
 
   const handleBookService = () => {
     const order = {
       name: document.getElementById("name").value,
       date: date,
       email: document.getElementById("email").value,
-      price: price,
-      img: img, 
-      roomName: roomName,
-      roomSize: roomSize,
-      specialOffer: specialOffer,
+      price: bookedRoom[0].price,
+      img: bookedRoom[0].img, 
+      roomName: bookedRoom[0].roomName,
+      roomSize: bookedRoom[0].roomSize,
+      specialOffer: bookedRoom[0].specialOffer,
       due: document.getElementById("due").value,
     };
 
-    fetch(`https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.approombookings/:${_id}`, {
+    fetch(`http://localhost:5000/roombookings/`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -42,6 +42,7 @@ const AddBooking = () => {
       .catch((error) => {
         console.error("Error occurred during booking:", error);
       });
+      
   };
 
   const showSummaryPopup = () => {
@@ -50,11 +51,11 @@ const AddBooking = () => {
       title: "Booking Summary",
       html: `
         <div>
-          <p><strong>Room Name:</strong> ${roomName}</p>
-          <p><strong>Room Size:</strong> ${roomSize}</p>
-          <p><strong>Special Offer:</strong> ${specialOffer}</p>
+          <p><strong>Room Name:</strong> ${bookedRoom[0].roomName}</p>
+          <p><strong>Room Size:</strong> ${bookedRoom[0].roomSize}</p>
+          <p><strong>Special Offer:</strong> ${bookedRoom[0].specialOffer}</p>
           <p><strong>Date:</strong> ${date}</p>
-          <p><strong>Due:</strong> ${price}</p>
+          <p><strong>Due:</strong> ${bookedRoom[0].price}</p>
         </div>
       `,
       confirmButtonText: "Confirm Booking",
@@ -67,9 +68,9 @@ const AddBooking = () => {
       }
     });
   };
-
   return (
     <div>
+    
       <div>
         <form
           onSubmit={(e) => e.preventDefault()}
@@ -113,7 +114,7 @@ const AddBooking = () => {
             <input
               id="due"
               type="text"
-              defaultValue={price}
+              defaultValue={bookedRoom[0].price}
               className="input input-bordered"
               required
             />

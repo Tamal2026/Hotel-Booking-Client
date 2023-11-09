@@ -5,7 +5,7 @@ const Featured = () => {
   const [featured, setFeatured] = useState([]);
 
   useEffect(() => {
-    fetch('https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.appfeaturedRooms')
+    fetch('http://localhost:5000/featuredRooms')
       .then(res => res.json())
       .then(data => setFeatured(data))
       .catch(error => console.error('Error fetching featured:', error));

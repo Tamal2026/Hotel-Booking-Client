@@ -9,7 +9,7 @@ const Rooms = () => {
   const [sortedRooms, setSortedRooms] = useState([]);
 
   useEffect(() => {
-    fetch("https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.approoms")
+    fetch("http://localhost:5000/rooms")
       .then((res) => res.json())
       .then((data) => setRooms(data))
       .catch((error) => console.error("Error fetching rooms:", error));

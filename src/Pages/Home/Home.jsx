@@ -1,5 +1,6 @@
 
 import HelmetReact from "../../Components/Helmet/HelmetReact";
+import DisplayData from "../../Components/Review/DisplayReview";
 import Banner from "./Banner/Banner";
 import Featured from "./Featured/Featured";
 import Newsletter from "./Newsletter/Newsletter";
@@ -15,7 +16,11 @@ const Home = () => {
            <Banner></Banner>
            <Welcome></Welcome>
            <Featured></Featured>
+
+           <h1 className="text-3xl text-center">Our Honorable Customer</h1>
+           <DisplayData></DisplayData>
            <Newsletter></Newsletter>
+         
  
             
         </div>

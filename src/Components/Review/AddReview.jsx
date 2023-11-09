@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import moment from "moment";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddReview = () => {
   const { user } = useContext(AuthContext);
@@ -16,7 +17,7 @@ const AddReview = () => {
     console.log(addReview);
     console.log(rating);
     axios
-      .post("https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.app/addReviews", {
+      .post("http://localhost:5000/addReviews", {
         review: addReview,
         rating: rating,
         username: username,
@@ -24,12 +25,22 @@ const AddReview = () => {
       })
       .then((res) => {
         console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Your Review has been posted",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+  
+          form.reset();
+        }
       })
       .catch((error) => {
         console.error("Error adding review:", error);
       });
   };
-
+  
   return (
     <div>
       <h1 className="mb-5 font-bold">

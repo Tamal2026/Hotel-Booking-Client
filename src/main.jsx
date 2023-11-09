@@ -44,15 +44,15 @@ const router = createBrowserRouter([
         element: <RoomDetails></RoomDetails>,
         loader: ({ params }) =>
           fetch(
-            `https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.approoms/${params.id}`
+            `http://localhost:5000/rooms/${params.id}`
           ),
       },
       {
         path: "/addbooking",
-        element: <AddBooking></AddBooking>,
+        element: <PrivateRoute><AddBooking></AddBooking></PrivateRoute>,
         loader: () =>
           fetch(
-            "https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.approoms"
+            "http://localhost:5000/rooms"
           ),
       },
       {
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
         element: <AddReview></AddReview>,
         loader: ({ params }) =>
           fetch(
-            `https://assinment11-server-5m6c1gdfs-tamal-krishna-das-projects.vercel.approoms/${params.id}`
+            `http://localhost:5000/rooms/${params.id}`
           ),
       },
       {
